@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install wget ca-certificates -y
 WORKDIR /opt
 
 # downloading latest version of PowerTunnel
-RUN curl -s https://api.github.com/repos/krlvm/PowerTunnel/releases/latest | grep "browser_download_url.*.jar" | cut -d : -f 2,3 | tr -d \" | xargs -I {} curl -LO {}
+RUN curl -s https://api.github.com/repos/krlvm/PowerTunnel/releases/latest | grep "browser_download_url.*.jar" | cut -d : -f 2,3 | tr -d \" | xargs -I {} curl -L {} -o PowerTunnel.jar
 
 VOLUME /config
 
